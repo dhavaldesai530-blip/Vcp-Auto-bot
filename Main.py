@@ -6,8 +6,8 @@ from flask import Flask, request
 app = Flask(__name__)
 
 # Telegram Credentials
-TELEGRAM_BOT_TOKEN = 8868194866
-TELEGRAM_CHAT_ID = vcpkrishnabot 
+TELEGRAM_BOT_TOKEN = "8868194866:AAHUmnjNV_dKKvzPtI_RrxnOZ3AeflB7kxM
+TELEGRAM_CHAT_ID = "vcpkrishnabot"
 
 def send_telegram_alert(message):
     try:
