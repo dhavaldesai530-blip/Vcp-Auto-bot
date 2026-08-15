@@ -1,27 +1,12 @@
-name: Run VCP Bot
+import os
+import asyncio
+from telegram import Bot
 
-permissions:
-  contents: write
+TOKEN = os.environ['TELEGRAM_TOKEN']
+CHAT_ID = os.environ['TELEGRAM_CHAT_ID']
 
-on:
-  workflow_dispatch:
+async def send():
+    bot = Bot(token=TOKEN)
+    await bot.send_message(chat_id=CHAT_ID, text="Bot chal gaya ✅")
 
-jobs:
-  run:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      
-      - name: Install deps
-        run: pip install python-telegram-bot==20.7
-      
-      - name: Run Telegram Bot
-        env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python Main.py
+asyncio.run(send())
