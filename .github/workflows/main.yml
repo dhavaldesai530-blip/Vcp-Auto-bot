@@ -1,5 +1,6 @@
 Botname: Run VCP Bot
-on:
+on:permissions:
+  contents: write
   schedule:
     - cron: '*/5 * * *'
   workflow_dispatch:
